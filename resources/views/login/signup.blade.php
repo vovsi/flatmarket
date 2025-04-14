@@ -6,7 +6,7 @@
 
 @section('content')
     <p class="title-content">SingUp</p>
-    <form id="signupForm" class="signup-form" method="post" action="{{ route('register') }}">
+    <form id="signupForm" class="input-form" method="post" action="{{ route('register') }}">
         @csrf
         <input type="text" placeholder="Name" name="name"  required>
         <input type="email" placeholder="E-mail" name="email" required>
@@ -14,5 +14,4 @@
         <input type="password" placeholder="Repeat password" name="password_confirmation" required>
         <input type="submit" value="SignUp" class="btn">
     </form>
-    <div id="error-message"></div>
 @endsection

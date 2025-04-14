@@ -28,13 +28,6 @@
                 <input type="password" placeholder="Password" name="password" required>
                 <input type="submit" value="Login" class="btn">
             </form>
-            <div class="error-message">
-                @if ($errors->any())
-                    @foreach($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                @endif
-            </div>
             <a href="{{ route('signup') }}" class="btn">
                 Signup
             </a>
@@ -58,7 +51,16 @@
 <div
     class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
     <main class="items-center">
-        <label class="info">{{ session()->get('info') }}</label>
+        <div class="info-message">
+            <label class="info-text">{{ session()->get('info') }}</label>
+        </div>
+        <div class="error-message">
+            @if ($errors->any())
+                @foreach($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            @endif
+        </div>
         @yield('content')
     </main>
 </div>

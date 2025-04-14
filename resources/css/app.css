@@ -10,7 +10,7 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/*Login form*/
+/* Login form */
 .login {
     display: inline-block;
 }
@@ -18,7 +18,7 @@
     display: inline-block;
 }
 
-/*Button*/
+/* Button */
 .btn {
     display: inline-block;
     box-sizing: border-box;
@@ -53,16 +53,16 @@
     opacity: 0.65;
 }
 
-/*SignUp*/
-.signup-form {
+/* Input form */
+.input-form {
     display: grid;
 }
-.signup-form input {
+.input-form input {
     padding: 10px;
     margin: 10px;
     height: auto;
 }
-.signup-form > .btn {
+.input-form > .btn {
     padding: 0;
 }
 
@@ -71,9 +71,18 @@
     text-align: center;
 }
 
+/* Error block */
 .error-message {
     color: red;
+    padding: 0 0 50px 0;
 }
-.info {
+
+/* Info block */
+.info-message {
+    color: dodgerblue;
+    padding: 0 0 50px 0;
+    text-align: center;
+}
+.info-text {
     font-size: xx-large;
 }

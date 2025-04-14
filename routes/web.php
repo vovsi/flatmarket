@@ -11,15 +11,19 @@ Route::get('/', function () {
     return view('welcome');
 })->name('main');
 
+// Login
 Route::post('register', [LoginController::class, 'register'])->name('register');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 Route::get('/signup', [LoginController::class, 'signup'])->name('signup');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// Profile
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::post('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePass');
 
 Route::post('/catalog', [CatalogController::class, 'index'])->name('catalog');
 
 Route::post('/contacts', [CompanyController::class, 'contacts'])->name('contacts');
 
 Route::post('/admin-panel', [AdminPanelController::class, 'index'])->name('admin-panel');
-
-Route::post('/profile', [ProfileController::class, 'index'])->name('profile');

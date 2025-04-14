@@ -6,7 +6,7 @@ It is online-market for buy something. :]
 ## Technologies
 
 - Main language is **PHP**;
-- Framework **Laravel**;
+- Framework **Laravel** (monolith);
 - Database **MySQL**;
 - **Blade** templates;
 - **JS**, **CSS**.
