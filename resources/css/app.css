@@ -52,3 +52,28 @@
     pointer-events: none;
     opacity: 0.65;
 }
+
+/*SignUp*/
+.signup-form {
+    display: grid;
+}
+.signup-form input {
+    padding: 10px;
+    margin: 10px;
+    height: auto;
+}
+.signup-form > .btn {
+    padding: 0;
+}
+
+.title-content {
+    font-size: xx-large;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+}
+.info {
+    font-size: xx-large;
+}

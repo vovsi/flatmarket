@@ -2,17 +2,64 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Actions\Login\LoginAction;
+use App\Actions\Login\LogoutAction;
+use App\Actions\Login\RegisterAction;
+use App\Actions\Login\SignupAction;
+use App\Components\DTO\Login\LoginDto;
+use App\Components\DTO\Login\RegisterDto;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
+use App\Services\Controllers\Login\LoginService;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
 {
-    public function index()
+    /**
+     * @return View
+     * @throws Exception
+     */
+    public function signup(): View
     {
-        return 'ok';
+        return app(SignupAction::class)->handle();
     }
 
-    public function signup()
+    /**
+     * @param RegisterRequest $request
+     * @return Response|RedirectResponse
+     * @throws Exception
+     */
+    public function register(RegisterRequest $request): Response|RedirectResponse
     {
-        return 'ok';
+        return app(RegisterAction::class, [
+            'service' => app(LoginService::class),
+            'model' => new User(),
+        ])->handle(new RegisterDto(
+            $request->name ?? null,
+            $request->email ?? null,
+            $request->password ?? null,
+            $request->password_confirmation ?? null,
+        ));
+    }
+
+    public function login(LoginRequest $request)
+    {
+        return app(LoginAction::class, [
+            'service' => app(LoginService::class),
+        ])->handle(new LoginDto(
+            $request->email ?? null,
+            $request->password ?? null,
+        ));
+    }
+
+    public function logout(): RedirectResponse
+    {
+        return app(LogoutAction::class, [
+            'service' => app(LoginService::class),
+        ])->handle();
     }
 }

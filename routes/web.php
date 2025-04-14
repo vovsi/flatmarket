@@ -11,8 +11,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('main');
 
-Route::post('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/signup', [LoginController::class, 'signup'])->name('signup');
+Route::post('register', [LoginController::class, 'register'])->name('register');
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::get('/signup', [LoginController::class, 'signup'])->name('signup');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::post('/catalog', [CatalogController::class, 'index'])->name('catalog');
 

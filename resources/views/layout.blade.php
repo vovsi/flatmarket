@@ -16,17 +16,25 @@
             <a href="{{ route('profile') }}" class="btn">
                 My profile
             </a>
-            @auth('admin')
+            @auth
                 <a href="{{ route('admin-panel') }}" class="btn">
                     Admin panel
                 </a>
             @endauth
         @else
-            <form method="post" action="{{ route('login') }}" class="login-form">
-                <input type="email" placeholder="E-mail" name="email">
-                <input type="password" placeholder="Password" name="pass">
+            <form id="loginForm" class="login-form" action="{{ route('login') }}" method="post">
+                @csrf
+                <input type="email" placeholder="E-mail" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
                 <input type="submit" value="Login" class="btn">
             </form>
+            <div class="error-message">
+                @if ($errors->any())
+                    @foreach($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                @endif
+            </div>
             <a href="{{ route('signup') }}" class="btn">
                 Signup
             </a>
@@ -40,11 +48,17 @@
         <a href="{{ route('contacts') }}" class="btn">
             Contacts
         </a>
+        @auth
+                <a href="{{ route('logout') }}" class="btn">
+                    Logout ({{ session('name') }})
+                </a>
+        @endauth
     @show
 </header>
 <div
     class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-    <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
+    <main class="items-center">
+        <label class="info">{{ session()->get('info') }}</label>
         @yield('content')
     </main>
 </div>
