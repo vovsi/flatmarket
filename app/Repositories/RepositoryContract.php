@@ -29,7 +29,7 @@ interface RepositoryContract
      * @param DtoContract|null $dto
      * @return Collection
      */
-    public function getList(?DtoContract $dto): Collection;
+    public function getList(?DtoContract $dto = null): Collection;
 
     /**
      * @param DtoContract $dto

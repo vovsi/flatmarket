@@ -24,6 +24,6 @@ Route::post('/profile/update-password', [ProfileController::class, 'updatePasswo
 
 Route::post('/catalog', [CatalogController::class, 'index'])->name('catalog');
 
-Route::post('/contacts', [CompanyController::class, 'contacts'])->name('contacts');
+Route::get('/contacts', [CompanyController::class, 'contacts'])->name('contacts');
 
 Route::post('/admin-panel', [AdminPanelController::class, 'index'])->name('admin-panel');

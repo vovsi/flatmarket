@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Repositories\User;
+namespace App\Repositories\Company;
 
 use App\Components\DTO\DtoContract;
-use App\Models\User;
+use App\Models\Company;
 use App\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-class UserRepository extends BaseRepository implements UserRepositoryContract
+class CompanyRepository extends BaseRepository implements CompanyRepositoryContract
 {
-    public function __construct(User $model)
+    public function __construct(Company $model)
     {
         $this->model = $model;
     }
@@ -23,15 +23,12 @@ class UserRepository extends BaseRepository implements UserRepositoryContract
 
     public function getList(?DtoContract $dto = null): Collection
     {
-        // TODO: Implement getList() method.
+        return Company::all();
     }
 
     public function store(DtoContract $dto): Model
     {
-        $this->model->fill($dto->toArray());
-        $this->model->save();
-
-        return $this->model;
+        // TODO: Implement store() method.
     }
 
     public function delete(): Model

@@ -10,8 +10,6 @@ class ProfileAction extends BaseAction
 {
     public function handle(DtoContract $dto = null): View
     {
-        session()->flash('_old_input', $this->getService()->showCurrent());
-
-        return view('profile.index');
+        return view('profile.index', $this->getService()->showCurrent());
     }
 }
