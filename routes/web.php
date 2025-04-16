@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdminPanelController;
 use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanyContactController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,12 +18,17 @@ Route::get('/signup', [LoginController::class, 'signup'])->name('signup');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Profile
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-Route::post('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.updatePass');
+Route::post('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('profile.update-password');
 
-Route::post('/catalog', [CatalogController::class, 'index'])->name('catalog');
+// Contacts
+Route::get('/contacts', [CompanyContactController::class, 'index'])->name('contacts.index');
 
-Route::get('/contacts', [CompanyController::class, 'contacts'])->name('contacts');
+// Admin-panel
+Route::get('/admin-panel/contacts', [AdminPanelController::class, 'contacts'])->name('admin.contacts.index');
+Route::post('/admin-panel/store-contact', [AdminPanelController::class, 'storeContact'])->name('admin.contacts.store');
+Route::delete('/admin-panel/destroy-contact/{model}', [AdminPanelController::class, 'destroyContact'])->name('admin.contacts.destroy');
 
-Route::post('/admin-panel', [AdminPanelController::class, 'index'])->name('admin-panel');
+// Catalog
+Route::post('/catalog', [CatalogController::class, 'index'])->name('catalog.index');

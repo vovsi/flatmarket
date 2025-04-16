@@ -25,14 +25,14 @@ class LoginService implements ServiceContract
         $this->repository = $repository;
     }
 
-    public function register(RegisterDto $dto, User $model): bool
+    public function register(RegisterDto $dto, User $model): User
     {
         $this->repository->setModel($model);
         $dto->setPassword(Hash::make($dto->getPassword()));
         $model = $this->repository->store($dto);
         $model->createToken(env('APP_NAME'))->plainTextToken;
 
-        return true;
+        return $model;
     }
 
     public function login(array $credentials): bool

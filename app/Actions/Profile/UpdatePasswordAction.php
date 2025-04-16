@@ -13,7 +13,7 @@ class UpdatePasswordAction extends BaseAction
         if ($this->getService()->updatePassword($dto, $this->getModel())) {
             session()->flash('info', 'Updated!');
 
-            return redirect()->route('profile');
+            return redirect()->route('profile.index');
         }
 
         return redirect()->back();

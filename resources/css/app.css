@@ -10,6 +10,10 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+body {
+    font: 400 14px "Calibri", "Arial";
+}
+
 /* Login form */
 .login {
     display: inline-block;
@@ -52,6 +56,40 @@
     pointer-events: none;
     opacity: 0.65;
 }
+/* Button sub */
+.btn-sub {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin: 0 15px 15px 0;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #385898;
+    background-color: #f4f9ff;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+}
+.btn-sub:focus-visible {
+    box-shadow: 0 0 0 2px #666;
+}
+.btn-sub:hover {
+    background-color: #ebeff1;
+}
+.btn-sub:active {
+    transform: scale(0.96);
+}
+.btn-sub:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+}
 
 /* Input form */
 .input-form {
@@ -75,6 +113,7 @@
 .error-message {
     color: red;
     padding: 0 0 50px 0;
+    display: contents;
 }
 
 /* Info block */
@@ -82,6 +121,7 @@
     color: dodgerblue;
     padding: 0 0 50px 0;
     text-align: center;
+    display: contents;
 }
 .info-text {
     font-size: xx-large;

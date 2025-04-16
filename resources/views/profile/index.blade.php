@@ -12,7 +12,7 @@
         <input type="email" placeholder="E-mail" name="email" required value="{{ old('email', $email) }}">
         <input type="submit" value="Save" class="btn">
     </form>
-    <form id="passForm" class="input-form" method="post" action="{{ route('profile.updatePass') }}">
+    <form id="passForm" class="input-form" method="post" action="{{ route('profile.update-password') }}">
         @csrf
         <input type="password" placeholder="Password" name="password" required>
         <input type="password" placeholder="Repeat password" name="password_confirmation" required>

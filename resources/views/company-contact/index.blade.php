@@ -1,6 +1,6 @@
 @extends('layout')
 
-@vite('resources/css/company/contacts.css')
+@vite('resources/css/company-contact/index.css')
 
 @section('title')
     Contacts

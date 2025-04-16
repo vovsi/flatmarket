@@ -13,7 +13,7 @@ class UpdateAction extends BaseAction
         if ($this->getService()->update($dto, $this->getModel())) {
             session()->flash('info', 'Updated!');
 
-            return redirect()->route('profile');
+            return redirect()->route('profile.index');
         }
 
         return redirect()->back();
