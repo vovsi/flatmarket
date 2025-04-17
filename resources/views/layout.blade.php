@@ -25,8 +25,8 @@
             @else
                 <form id="loginForm" class="login-form" action="{{ route('login') }}" method="post">
                     @csrf
-                    <input type="email" placeholder="E-mail" name="email" required>
-                    <input type="password" placeholder="Password" name="password" required>
+                    <input type="email" placeholder="E-mail" name="email" class="input" required>
+                    <input type="password" placeholder="Password" name="password" class="input" required>
                     <input type="submit" value="Login" class="btn">
                 </form>
                 <a href="{{ route('signup') }}" class="btn">

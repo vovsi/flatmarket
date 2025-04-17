@@ -31,10 +31,10 @@
             @foreach($contacts as $contact)
                 <tr data-id="{{ $contact->id }}">
                     <td>{{ $loop->iteration }}</td>
-                    <td class="contact-update" data-column="phone">{{ $contact->phone }}</td>
-                    <td class="contact-update" data-column="email">{{ $contact->email }}</td>
-                    <td class="contact-update" data-column="address">{{ $contact->address }}</td>
-                    <td class="contact-update" data-column="time_work">{{ $contact->time_work }}</td>
+                    <td>{{ $contact->phone }}</td>
+                    <td>{{ $contact->email }}</td>
+                    <td>{{ $contact->address }}</td>
+                    <td>{{ $contact->time_work }}</td>
                     <td>
                         <form action="{{ route('admin.contacts.destroy', ['model' => $contact->id]) }}" method="post">
                             @csrf

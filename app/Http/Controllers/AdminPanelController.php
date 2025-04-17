@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Actions\AdminPanel\DestroyContactAction;
 use App\Actions\AdminPanel\StoreContactAction;
 use App\Actions\AdminPanel\ContactsAction;
-use App\Components\DTO\AdminPanel\DestroyContactDto;
+use App\Actions\AdminPanel\UsersAction;
 use App\Components\DTO\AdminPanel\StoreContactDto;
-use App\Http\Requests\AdminPanel\DestroyContactRequest;
 use App\Http\Requests\AdminPanel\StoreContactRequest;
 use App\Models\CompanyContact;
+use App\Services\Controllers\AdminPanel\UserService;
 use App\Services\Controllers\CompanyContact\CompanyContactService;
 
 class AdminPanelController extends Controller
@@ -39,6 +39,13 @@ class AdminPanelController extends Controller
         return app(DestroyContactAction::class, [
             'service' => app(CompanyContactService::class),
             'model' => $model,
+        ])->handle();
+    }
+
+    public function users()
+    {
+        return app(UsersAction::class, [
+            'service' => app(UserService::class),
         ])->handle();
     }
 }

@@ -23,7 +23,7 @@ class UserRepository extends BaseRepository implements UserRepositoryContract
 
     public function getList(?DtoContract $dto = null): Collection
     {
-        // TODO: Implement getList() method.
+        return User::all();
     }
 
     public function store(DtoContract $dto): Model

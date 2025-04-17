@@ -104,6 +104,12 @@ body {
     padding: 0;
 }
 
+.input {
+    padding: 10px;
+    margin: 10px;
+    height: auto;
+}
+
 .title-content {
     font-size: xx-large;
     text-align: center;
